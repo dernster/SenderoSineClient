@@ -43,12 +43,12 @@ void InteractionBehaviour::customSetup (map<int,Pixel*>* pixels, vector<Pixel*>*
 
 void InteractionBehaviour::update() {
 
-    uint64_t t = ofGetElapsedTimeMillis();
+    static float t = 0;
 
-    float tAdjusted = ((float)t) * 0.001;
-    float r = ((sin(tAdjusted) + 1)/ 2) * 255.f;
-    float g = ((sin(tAdjusted*1.2 + 30) + 1) / 2) * 255.f;
-    float b = ((sin(tAdjusted*0.6 + 511) + 1) / 2) * 255.f;
+    float r = 255 * (sin(t * 4.12456654) + 1) / 2;
+    float g = 255 - (255 * (sin(t * 5.313) + 1) / 2);
+    float b = 255 * (sin(t * 9.125412) + 1) / 2;
+    t += 0.007;
 
     for(int i = 0; i < pixelsFast->size(); i++){
         Pixel* px = (*pixelsFast)[i];
