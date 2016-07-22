@@ -45,14 +45,18 @@ void InteractionBehaviour::update() {
 
     static float t = 0;
 
+    // r = int(255 * (math.sin(t * 4.12456654) + 1) / 2)
+    // g = 255 - int(255 * (math.sin(t * 5.313) + 1) / 2)
+    // b = int(255 * (math.sin(t * 9.125412) + 1) / 2)
+
     float r = 255 * (sin(t * 4.12456654) + 1) / 2;
     float g = 255 - (255 * (sin(t * 5.313) + 1) / 2);
     float b = 255 * (sin(t * 9.125412) + 1) / 2;
-    t += 0.007;
+    t += 0.008;
 
     for(int i = 0; i < pixelsFast->size(); i++){
         Pixel* px = (*pixelsFast)[i];
-        px->blendRGBA(r,g,b,255,1);
+        px->blendRGBA(r,g,b,33333,1);
     }
 
 }
